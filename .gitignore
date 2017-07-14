@@ -2,3 +2,4 @@ node_modules
 Angular+Test.doc
 .~lock.Angular+Test.doc#
 .idea
+dist
