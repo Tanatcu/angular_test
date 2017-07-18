@@ -9,8 +9,8 @@ function toastConfig(toastrConfig) {
 		maxOpened: 2,
 		newestOnTop: true,
 		positionClass: 'toast-top-right',
-		preventDuplicates: true,
-		preventOpenDuplicates: false,
+		preventDuplicates: false,
+		preventOpenDuplicates: true,
 		target: 'body'
 	});
 }

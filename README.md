@@ -2,8 +2,7 @@
  Simple SPA that looks like forum with comments
  
     # For development project you will need
-        in npm and gulp
-    # You need install this modules before
+        to install npm
      
     # Updating necessary dependencies
         is necessary after cloning of project 
@@ -14,7 +13,3 @@
      
     $ gulp
      
-    # The build is performed by
-        the following command
-     
-    $ gulp build

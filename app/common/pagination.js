@@ -1,12 +1,16 @@
-angular.module('paginationFactory', []).factory('paginate', paginate);
+angular.module('paginationFactory', []).factory('Pagination', Pagination);
 
-function paginate() {
+function Pagination() {
 	return function (array) {
-		var data = array, counter = 0;
+		var data = array,
+				counter = 0;
 
 		return {
 			current: function () {
 				return data.slice(counter, counter + 10)
+			},
+			total: function () {
+				return data.length
 			},
 			prev: function () {
 				if (counter > 0) {

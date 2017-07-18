@@ -1,28 +1,16 @@
 angular.module('spa').controller('postsCtrl', postsCtrl);
 
-postsCtrl.$inject = ['postModel', '$scope', '$state', 'paginate'];
+postsCtrl.$inject = ['postModel', '$scope', '$state', 'Pagination', '$rootScope'];
 
-function postsCtrl(postModel, $scope, $state, paginate) {
-	var pag = null;
+function postsCtrl(postModel, $scope, $state, Pagination, $rootScope) {
+	var pagination = null;
 
 	postModel.getAll().then(function (result) {
-		pag = paginate(result.data);
-		$scope.posts = pag.current();
+		pagination = Pagination(result.data);
+
+		$scope.posts = pagination.current();
+		$scope.total = pagination.total();
 	});
-
-	$scope.showPost = function (post) {
-		$state.go('post', {
-			postId: post.id
-		})
-	};
-
-	$scope.prevPage = function () {
-		$scope.posts = pag.prev();
-	};
-
-	$scope.nextPage = function () {
-		$scope.posts = pag.next();
-	};
 
 	$scope.delete = function (post, index) {
 		postModel.delete(post.id).then(function () {
@@ -31,9 +19,29 @@ function postsCtrl(postModel, $scope, $state, paginate) {
 		})
 	};
 
+	$scope.addPost = function () {
+		$rootScope.$broadcast('openPostModal', {});
+	};
+
+	$scope.showPost = function (post) {
+		$state.go('post', {postId: post.id})
+	};
+
+	$scope.editPost = function (post) {
+		$scope.$broadcast('openPostModal', post)
+	};
+
+	$scope.prevPage = function () {
+		$scope.posts = pagination.prev();
+	};
+
+	$scope.nextPage = function () {
+		$scope.posts = pagination.next();
+	};
+
 	$scope.$watch('posts', function (val) {
-		if (val) {
-			$scope.currentItem = val[0].id;
-		}
-	})
+		if (!val) return false;
+
+		$scope.currentItem = val[0].id;
+	});
 }

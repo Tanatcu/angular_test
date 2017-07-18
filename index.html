@@ -6,26 +6,22 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-	<base href="/">
+	<base href="http://localhost:3000">
 
 	<!-- build:css css/plugin.css-->
 	<link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.min.css">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<!-- endbuild-->
 
+	<!-- build:css css/styles.css-->
+	<link rel="stylesheet" href="app/assets/css/index.css">
+	<!-- endbuild-->
+
 </head>
 
 <body ng-app="spa" ng-cloak>
 
-<div class="container">
-	<div class="page-header">
-		<h1>PostCRUDo
-			<small>Test your skills on editing posts and comments</small>
-		</h1>
-	</div>
-	<ui-view></ui-view>
-</div>
-
+<spa-header></spa-header>
 
 <!-- build:js js/vendor.js-->
 <script src="node_modules/angular/angular.js"></script>
@@ -42,16 +38,21 @@
 <script src="app/router/index.js"></script>
 
 <script src="app/configs/toastrConfig.js"></script>
-<script src="app/configs/httpConfig.js"></script>
 
 <script src="app/models/post.js"></script>
 <script src="app/models/comment.js"></script>
+<script src="app/models/user.js"></script>
+
+<script src="app/components/index.js"></script>
 
 <script src="app/controllers/postsCtrl.js"></script>
 <script src="app/controllers/postCtrl.js"></script>
+<script src="app/controllers/searchCtrl.js"></script>
 
 <script src="app/common/requestService.js"></script>
 <script src="app/common/pagination.js"></script>
+<script src="app/common/constants.js"></script>
+<script src="app/common/filters.js"></script>
 <!-- endbuild-->
 
 </body>

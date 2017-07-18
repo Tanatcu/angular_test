@@ -1,1 +1,0 @@
-angular.module('config.http', []).constant('urlRoot', 'http://jsonplaceholder.typicode.com/');

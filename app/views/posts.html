@@ -1,25 +1,26 @@
-<div class="row">
+<button ui-sref="search" class="btn btn-success moderator">Search</button>
+<button class="btn btn-success moderator" ng-click="addPost()">Add post</button>
 
-	<ol class="breadcrumb">
-		<li><a href ui-sref="posts" ui-sref-active-eq="active">Home</a></li>
-	</ol>
-
-	<div class="panel panel-primary" ng-repeat="post in posts track by post.id">
-		<div class="panel-body">
-			{{post.title}}
-		</div>
-
-		<div class="panel-footer">{{post.body}}</div>
-
-		<a class="btn btn-primary" role="button" ng-click="showPost(post)">Посмотреть</a>
-		<a class="btn btn-danger" role="button" ng-click="delete(post, $index)">Удалить</a>
+<div class="panel panel-primary" ng-repeat="post in posts track by post.id">
+	<div class="panel-heading">
+		{{post.title}}
 	</div>
 
-	<nav aria-label="">
-		<ul class="pager">
-			<li><a href ng-click="prevPage()">Previous</a></li>
-			<li>{{currentItem}} to {{currentItem + 9}}</li>
-			<li><a href ng-click="nextPage()">Next</a></li>
-		</ul>
-	</nav>
+	<div class="panel-body">{{post.body}}</div>
+
+	<div class="panel-footer">
+		<a class="btn btn-primary" role="button" ng-click="showPost(post)">Show</a>
+		<a class="btn btn-primary" role="button" ng-click="editPost(post)">Edit</a>
+		<a class="btn btn-danger" role="button" ng-click="delete(post, $index)">Remove</a>
+	</div>
 </div>
+
+<nav>
+	<ul class="pager">
+		<li><a href ng-click="prevPage()">Previous</a></li>
+		<li>{{currentItem}} to {{currentItem + 9}} of {{total}}</li>
+		<li><a href ng-click="nextPage()">Next</a></li>
+	</ul>
+</nav>
+
+<post-modal></post-modal>

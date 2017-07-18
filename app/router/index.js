@@ -17,15 +17,10 @@ function routerConfig($stateProvider, $locationProvider, $urlRouterProvider) {
 				templateUrl: 'app/views/post.html',
 				controller: 'postCtrl'
 			})
-			.state('comments', {
-				url: '/post/:postId/comments',
-				templateUrl: 'app/views/comments.html',
-				controller: ''
-			})
-			.state('comment', {
-				url: '/post/:postId/comment/:commentId',
-				templateUrl: 'app/views/comment.html',
-				controller: ''
+			.state('search', {
+				url: '/search',
+				templateUrl: 'app/views/search.html',
+				controller: 'searchCtrl'
 			});
 
 	$urlRouterProvider.otherwise('/');

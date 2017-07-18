@@ -13,6 +13,14 @@ function postModel($api, toast) {
 	};
 
 	/**
+	 * Getting posts by filter params
+	 * @param filter
+	 */
+	this.getByFilter = function (filter) {
+		return $api.get('posts', filter)
+	};
+
+	/**
 	 * Getting post by id
 	 * @param id - id of post
 	 * @returns {promise}

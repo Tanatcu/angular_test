@@ -1,0 +1,36 @@
+<div class="input-group search_input">
+	<input title="search input" type="text" class="form-control" ng-model="searchField">
+</div>
+
+<ol class="breadcrumb">
+	<li><a ui-sref="posts">Home</a></li>
+	<li><a ui-sref="search">Search</a></li>
+</ol>
+
+<div ng-if="searchField.length >= 3" class="panel panel-success"
+		 ng-repeat="post in posts | global:searchField">
+	<div class="panel-heading">
+		{{post.title}}
+	</div>
+
+	<div class="panel-body">{{post.body}}</div>
+
+	<div class="panel-footer">
+		<a class="btn btn-primary" role="button" ng-click="showPost(post)">Show</a>
+	</div>
+
+</div>
+
+<div ng-if="searchField.length >= 3" class="panel panel-primary"
+		 ng-repeat="comment in comments | global:searchField">
+	<div class="panel-heading">
+		{{comment.name}}
+	</div>
+
+	<div class="panel-body">{{comment.body}}</div>
+
+	<div class="panel-footer">
+		<a class="btn btn-primary" role="button" ng-click="showComment(comment)">Show</a>
+	</div>
+
+</div>

@@ -2,11 +2,15 @@ angular.module('spa', [
 	'router',
 	'paginationFactory',
 
+	'components',
+
 	'config.toast',
-	'config.http',
+	'constants',
+	'filters',
 
 	'requestService',
 
 	'model.post',
+	'model.user',
 	'model.comment'
 ]);
