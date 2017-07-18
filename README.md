@@ -4,8 +4,7 @@
     # For development project you will need
         to install npm
      
-    # Updating necessary dependencies
-        is necessary after cloning of project 
+    # Updating necessary dependencies is necessary after cloning of project 
      
     $ npm install
      
